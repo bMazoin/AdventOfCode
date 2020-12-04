@@ -22,25 +22,11 @@ int main() {
     int currentX = 0, nbTrees = 0, xLength = 0;
 
     while (cin >> line) {
-        lines.push_back(line);
-    }
-
-    for (int i = 0; lines.at(0)[i] != '\0'; i++)
-    {
-        if (lines.at(0)[i] != ' ')
-        {
-            xLength++;
-        }
-    }
-
-
-    for (int i = 0; i < lines.size(); i++) {
-        currentX += 3;
-        currentX %= xLength;
-        if (lines.at(i)[currentX] == '#') {
+        if (line[currentX] == '#') {
             nbTrees++;
         }
-        
+        currentX += 3;
+        currentX %= line.length();
     }
 
     cout << "Encountered " << nbTrees << " trees" << endl;
